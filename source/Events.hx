@@ -302,7 +302,7 @@ class Events {
 				textMaps["YOU'RE NOT\nTHE REAL YOU."].screenCenter();
 				Init.trueSettings['Reduced Movements'] = false;
 				Init.trueSettings['No Camera Note Movement'] = true;
-				PlayState.focus = "bf";
+				PlayState.focus = BF;
 				PlayState.lockFocus = true;
 
 				PlayState.dadOpponent.visible = false;
@@ -448,7 +448,7 @@ class Events {
 				PlayState.instance.stageBuild.background.members[0].visible = false;
 				PlayState.instance.stageBuild.background.members[1].visible = false;
 
-				PlayState.focus = "";
+				PlayState.focus = NONE;
 				PlayState.instance.camFollow.setPosition(2207.4125, 909.475);
 				PlayState.lockFocus = true;
 				PlayState.lockCamPos = true;
@@ -586,7 +586,7 @@ class Events {
 				ShaderObject.setValue("glitch.isDad.value", [false]);
 				ShaderObject.setValue("block.intensity.value", [0]);
 
-				PlayState.focus = "bf";
+				PlayState.focus = BF;
 				PlayState.lockFocus = true;
 
 				PlayState.camGame.alpha = 0;
@@ -654,7 +654,7 @@ class Events {
 				for (cam in PlayState.instance.allUIs)
 					cam.visible = false;
 	
-				PlayState.focus = "";
+				PlayState.focus = NONE;
 				var stage1 = PlayState.instance.stageBuild.background.members[0].getMidpoint();
 				var stage2 = PlayState.instance.stageBuild.background.members[1].getMidpoint();
 
@@ -698,7 +698,7 @@ class Events {
 				Init.trueSettings['No Camera Note Movement'] = true;
 				Init.trueSettings['Reduced Movements'] = false;
 
-                PlayState.focus = "bf";
+                PlayState.focus = BF;
 				PlayState.camGame.filters = [ShaderObject.getShader("vhs"), ShaderObject.getShader("block")];
 				ShaderObject.setValue("block.intensity.value", [0]);
 
@@ -1502,7 +1502,7 @@ class Events {
 					PlayState.instance.camFollow.setPosition(850, 350);
 					PlayState.lockCamPos = true;
 
-					PlayState.focus = "bf";
+					PlayState.focus = BF;
 					PlayState.lockFocus = true;
 
 					PlayState.defaultCamZoom = 1.2;
@@ -1770,7 +1770,7 @@ class Events {
 					textMaps["PUT YOUR SERVICE WEAPON"].visible = true;
 					textMaps["IN YOUR MOUTH."].visible = false;
 
-					PlayState.focus = "bf";
+					PlayState.focus = BF;
 					PlayState.lockFocus = true;
 
 					PlayState.defaultCamZoom = 1.2;
@@ -2295,7 +2295,7 @@ class Events {
 						PlayState.defaultCamZoom = 0.4;
 						PlayState.forceZoom[0] = 1;
 						PlayState.lockCamPos = false;
-						PlayState.focus = "";
+						PlayState.focus = NONE;
 						PlayState.instance.camFollow.setPosition(PlayState.dadOpponent.getGraphicMidpoint().x + 50,
 							PlayState.dadOpponent.getGraphicMidpoint().y - 490);
 						PlayState.lockCamPos = true;
@@ -2380,7 +2380,7 @@ class Events {
 				{
 					FlxTweenPlayState.tween(PlayState.instance.stageBuild.background.members[0], {alpha: 0.5}, 0.4, {ease: FlxEase.sineOut});
 					FlxTweenPlayState.tween(PlayState.instance.stageBuild.background.members[1], {alpha: 0.5}, 0.4, {ease: FlxEase.sineOut});
-					PlayState.focus = "dad";
+					PlayState.focus = DAD;
 					PlayState.lockFocus = true;
 					PlayState.defaultCamZoom = 0.7;
 					PlayState.dadOpponent.characterData.camOffsetX -= 100;
@@ -2457,7 +2457,7 @@ class Events {
 					PlayState.dadOpponent.setCharacter(1005, 600, "gab_front");
 					PlayState.dadOpponent.setPosition(1005, 600);
 
-					PlayState.focus = "dad";
+					PlayState.focus = DAD;
 					PlayState.lockFocus = true;
 					PlayState.forceZoom[0] = 0;
 
@@ -2588,7 +2588,7 @@ class Events {
 				}
 				if (step == 752)
 				{
-					PlayState.focus = "dad";
+					PlayState.focus = DAD;
 					PlayState.lockFocus = true;
 					PlayState.forceZoom[0] = 0.1;
 					FlxTweenPlayState.color(PlayState.dadOpponent, 0.2, FlxColor.WHITE, FlxColor.BLACK);
@@ -2635,7 +2635,7 @@ class Events {
 				}
 				if (step == 1264)
 				{
-					PlayState.focus = "dad";
+					PlayState.focus = DAD;
 					PlayState.lockFocus = true;
 					PlayState.forceZoom[0] = 0.1;
 					FlxTweenPlayState.color(PlayState.dadOpponent, 0.2, FlxColor.WHITE, FlxColor.BLACK);
@@ -2667,7 +2667,7 @@ class Events {
 				}
 				if (step == 1776)
 				{
-					PlayState.focus = "dad";
+					PlayState.focus = DAD;
 					PlayState.lockFocus = true;
 					PlayState.forceZoom[0] = 0.1;
 					FlxTweenPlayState.color(PlayState.dadOpponent, 0.2, FlxColor.WHITE, FlxColor.BLACK);
@@ -3136,7 +3136,7 @@ class Events {
 				}
 				if (step == 535 || step == 569 || step == 599 || step == 633)
 				{
-					PlayState.focus = "bf";
+					PlayState.focus = BF;
 					PlayState.lockFocus = true;
 					PlayState.defaultCamZoom -= 0.75;
 				}
@@ -3782,9 +3782,9 @@ class Events {
 				if ((step >= 0 && step <= 251) || (step >= 256 && step <= 503) || (step >= 640 && step <= 1019)
 					|| (step >= 1024 && step <= 1655) || step >= 1664)
                 {
-					if (PlayState.focus == "bf")
+					if (PlayState.focus == BF)
 						PlayState.defaultCamZoom = 1.1;
-					else if (PlayState.focus == "dad")
+					else if (PlayState.focus == DAD)
 						PlayState.defaultCamZoom = 1.7;
                 }
         }
@@ -4699,9 +4699,9 @@ class Events {
         switch (songName)
         {
 			case "Awakened":
-				if (PlayState.focus == "dad")
+				if (PlayState.focus == DAD)
 					PlayState.forceZoom[0] = 0.3;
-				else if (PlayState.focus == "bf")
+				else if (PlayState.focus == BF)
 					PlayState.forceZoom[0] = 0;
 			case "Befriended":
 				vignette.scale.set(1 / PlayState.camGame.zoom, 1 / PlayState.camGame.zoom);
@@ -4709,12 +4709,12 @@ class Events {
 
 				if (step >= 2416 && step < 2928)
 				{
-					if (PlayState.focus == "dad")
+					if (PlayState.focus == DAD)
 					{
 						PlayState.defaultCamZoom = 1;
 						PlayState.boyfriend.alpha = FlxMath.lerp(PlayState.boyfriend.alpha, 0, elapsed / (1 / 60) * 0.1);
 					}
-					else if (PlayState.focus == "bf")
+					else if (PlayState.focus == BF)
 					{
 						PlayState.defaultCamZoom = 0.8;
 						PlayState.boyfriend.alpha = FlxMath.lerp(PlayState.boyfriend.alpha, 1, elapsed / (1 / 60) * 0.1);
@@ -4729,16 +4729,16 @@ class Events {
 				redVignette.scale.set(1 / PlayState.camGame.zoom, 1 / PlayState.camGame.zoom);
 				if (step >= 800 && step < 2608)
 				{
-					if (PlayState.focus == "dad")
+					if (PlayState.focus == DAD)
 						PlayState.forceZoom[0] = 0.1;
-					else if (PlayState.focus == "bf")
+					else if (PlayState.focus == BF)
 						PlayState.forceZoom[0] = 0.28;
 				}
 				if (step >= 3888 && step < 4144)
 				{
-					if (PlayState.focus == "dad")
+					if (PlayState.focus == DAD)
 						PlayState.forceZoom[0] = 0.1;
-					else if (PlayState.focus == "bf")
+					else if (PlayState.focus == BF)
 						PlayState.forceZoom[0] = 0.28;
 				}
 			case "Pursued":
@@ -4749,12 +4749,12 @@ class Events {
 
 				if (step < 1872)
 				{
-					if (PlayState.focus == "dad")
+					if (PlayState.focus == DAD)
 					{
 						PlayState.instance.camDisplaceExtend = 6;
 						PlayState.forceZoom[0] = 1;
 					}
-					else if (PlayState.focus == "bf")
+					else if (PlayState.focus == BF)
 					{
 						PlayState.instance.camDisplaceExtend = 12;
 						PlayState.forceZoom[0] = 0;
@@ -4764,12 +4764,12 @@ class Events {
 			case "Lured":
 				if (step >= 256 && step <= 1919)
 				{
-					if (PlayState.focus == "bf")
+					if (PlayState.focus == BF)
 					{
 						Init.trueSettings['No Camera Note Movement'] = false;
 						PlayState.defaultCamZoom = 0.52;
 					}
-					else if (PlayState.focus == "dad")
+					else if (PlayState.focus == DAD)
 					{
 						Init.trueSettings['No Camera Note Movement'] = true;
 						PlayState.defaultCamZoom = 0.82;
@@ -4777,12 +4777,12 @@ class Events {
 				}
 				if (step >= 2880 && step <= 3375)
 				{
-					if (PlayState.focus == "bf")
+					if (PlayState.focus == BF)
 					{
 						Init.trueSettings['No Camera Note Movement'] = false;
 						PlayState.defaultCamZoom = 0.52;
 					}
-					else if (PlayState.focus == "dad")
+					else if (PlayState.focus == DAD)
 					{
 						Init.trueSettings['No Camera Note Movement'] = true;
 						PlayState.defaultCamZoom = 0.82;
@@ -4790,12 +4790,12 @@ class Events {
 				}
 				if (step >= 3392 && step < 3520)
 				{
-					if (PlayState.focus == "bf")
+					if (PlayState.focus == BF)
 					{
 						Init.trueSettings['No Camera Note Movement'] = false;
 						PlayState.defaultCamZoom = 0.52;
 					}
-					else if (PlayState.focus == "dad")
+					else if (PlayState.focus == DAD)
 					{
 						Init.trueSettings['No Camera Note Movement'] = true;
 						PlayState.defaultCamZoom = 0.82;

@@ -39,6 +39,14 @@ using StringTools;
 import meta.data.dependency.Discord;
 #end
 
+enum Focus
+{
+	BF;
+	DAD;
+	CENTER;
+	NONE;
+}
+
 class PlayState extends MusicBeatState
 {
 	public static var instance:PlayState;
@@ -158,12 +166,12 @@ class PlayState extends MusicBeatState
 
 	public var camDisplaceExtend:Float = 12;
 
-	public static var focus:String = "dad";
+	public static var focus:Focus = DAD;
 
 	function resetStatics()
 	{
 		instance = this;
-		focus = "dad";
+		focus = DAD;
 		FlxTweenPlayState.globalManager.active = true;
 		timerManager.active = true;
 		lockCamPos = false;
@@ -506,27 +514,28 @@ class PlayState extends MusicBeatState
 	{
 		switch (focus)
 		{
-			case 'dad':
+			case DAD:
 				var char = dadOpponent;
 
 				var getCenterX = char.getMidpoint().x;
 				var getCenterY = char.getMidpoint().y;
 
 				camFollow.setPosition(getCenterX + camDisplaceX + char.characterData.camOffsetX, getCenterY + camDisplaceY + char.characterData.camOffsetY);
-			case "bf":
+			case BF:
 				var char = boyfriend;
 
 				var getCenterX = char.getMidpoint().x;
 				var getCenterY = char.getMidpoint().y;
 
 				camFollow.setPosition(getCenterX + camDisplaceX - char.characterData.camOffsetX, getCenterY + camDisplaceY + char.characterData.camOffsetY);
-			case 'center':
+			case CENTER:
 				var bfMid = boyfriend.getMidpoint();
 				var dadMid = dadOpponent.getMidpoint();
 
 				var centerX = (dadMid.x + bfMid.x) / 2;
 				var centerY = (dadMid.y + bfMid.y) / 2;
 				camFollow.setPosition(centerX, centerY);
+			default:
 		}
 	}
 
@@ -627,9 +636,9 @@ class PlayState extends MusicBeatState
 				if (!lockFocus)
 				{
 					if (!PlayState.SONG.notes[Std.int(curStep / 16)].mustHitSection)
-						focus = "dad";
+						focus = DAD;
 					else
-						focus = "bf";
+						focus = BF;
 				}
 			}
 			
@@ -1105,9 +1114,11 @@ class PlayState extends MusicBeatState
 		{
 			if (PlayState.SONG.notes[Std.int(curStep / 16)] != null)
 			{
-				var charTurn:String = "bf";
+				var charTurn:Focus;
 				if (!mustHit)
-					charTurn = "dad";
+					charTurn = DAD;
+				else 
+					charTurn = BF;
 
 				if (charTurn != focus) return;
 
