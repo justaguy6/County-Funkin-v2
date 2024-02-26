@@ -37,6 +37,10 @@ class GameOverSubstate extends MusicBeatSubState
 		add(text);
 
 		camera = FlxG.cameras.list[FlxG.cameras.list.length - 1];
+
+		#if android
+		addVirtualPad(NONE, B);
+		#end
 	}
 
 	override function update(elapsed:Float)
