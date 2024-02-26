@@ -26,9 +26,7 @@ import openfl.display.FPS;
 import openfl.display.Sprite;
 import openfl.events.Event;
 import openfl.events.UncaughtErrorEvent;
-import sys.FileSystem;
-import sys.io.File;
-import sys.io.Process;
+import lime.system.System;
 
 typedef CrashContent = {
 	var content:String;
@@ -42,7 +40,6 @@ class Main extends Sprite
 	// class action variables
 	public static var gameWidth:Int = 1280; // Width of the game in pixels (might be less / more in actual pixels depending on your zoom).
 	public static var gameHeight:Int = 720; // Height of the game in pixels (might be less / more in actual pixels depending on your zoom).
-
 	public static var mainClassState:Class<FlxState> = Init; // Determine the main class state of the game
 	public static var framerate:Int = 120; // How many frames per second the game should run at.
 
@@ -106,10 +103,6 @@ class Main extends Sprite
 		// addChild(new FPS(10, 3, 0xFFFFFF));
 
 		// begin the discord rich presence
-		#if DISCORD_RPC
-		Discord.initializeRPC();
-		Discord.changePresence('');
-		#end
 
 		// test initialising the player settings
 		PlayerSettings.init();
@@ -189,7 +182,6 @@ class Main extends Sprite
 		http.request(true);
 
 		Application.current.window.alert("Something went wrong!\n\nA report has been automatically sent into the County Funkin' development server.\n\nYou may also send a bug report via the County Funkin' twitter account.", "County Farted and Shat Itself");
-		Discord.shutdownRPC();
 		Sys.exit(1);
 	}
 }
