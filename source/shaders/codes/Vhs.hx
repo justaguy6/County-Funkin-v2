@@ -118,9 +118,9 @@ class Vhs extends FlxShader
             , tmpvar_15.y)));
             vec4 tmpvar_20;
             tmpvar_20.w = 1.0;
-            tmpvar_20.x = flixel_texture2D (bitmap, (uv_2 + vec2(-0.001, 0.0))).x;
-            tmpvar_20.y = flixel_texture2D (bitmap, uv_2).y;
-            tmpvar_20.z = flixel_texture2D (bitmap, (uv_2 + vec2(0.001, 0.0))).z;
+            tmpvar_20.x = flixel_texture2D(bitmap, (uv_2 + vec2(-0.001, 0.0))).x;
+            tmpvar_20.y = flixel_texture2D(bitmap, uv_2).y;
+            tmpvar_20.z = flixel_texture2D(bitmap, (uv_2 + vec2(0.001, 0.0))).z;
             c_1 = (c_1 + tmpvar_20);
             c_1 = (c_1 * (1.0 + (0.1 * 
                 sin((((tmpvar_3.y * iResolution.y) * 3.141593) / 2.0))
@@ -256,7 +256,7 @@ class Vhs extends FlxShader
             tmpvar_48.xyz = vec3(v_25);
             vec4 tmpvar_49;
             tmpvar_49.w = 1.0;
-            tmpvar_49.xyz = (flixel_texture2D (bitmap, tmpvar_47).xyz * 0.06);
+            tmpvar_49.xyz = (flixel_texture2D(bitmap, tmpvar_47).xyz * 0.06);
             gl_FragColor = tmpvar_48 + c_1 + tmpvar_49;
         }
     "
