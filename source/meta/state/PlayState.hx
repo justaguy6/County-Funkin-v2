@@ -675,7 +675,7 @@ class PlayState extends MusicBeatState
 					hud.visible = false;
 				openSubState(new GameOverSubstate());
 
-				#if DISCORD_RPC
+				#if desktop
 				Discord.changePresence("Game Over - " + songDetails, detailsSub, iconRPC);
 				#end
 			}
@@ -1185,7 +1185,7 @@ class PlayState extends MusicBeatState
 
 	public static function updateRPC(pausedRPC:Bool)
 	{
-		#if DISCORD_RPC
+		#if desktop
 		var displayRPC:String = (pausedRPC) ? detailsPausedText : songDetails;
 
 		if (health > 0)
