@@ -81,9 +81,9 @@ class Glitch extends FlxShader {
                 tmpvar_20.y = 0.0;
                 tmpvar_20.x = (g_6 * vec3(0.16, 0.04, -0.8)).z;
                 vec3 tmpvar_21;
-                tmpvar_21.x = flixel_texture2D (bitmap, (tmpvar_2 + tmpvar_18)).x;
-                tmpvar_21.y = flixel_texture2D (bitmap, (tmpvar_2 + tmpvar_19)).y;
-                tmpvar_21.z = flixel_texture2D (bitmap, (tmpvar_2 + tmpvar_20)).z;
+                tmpvar_21.x = flixel_texture2D(bitmap, (tmpvar_2 + tmpvar_18)).x;
+                tmpvar_21.y = flixel_texture2D(bitmap, (tmpvar_2 + tmpvar_19)).y;
+                tmpvar_21.z = flixel_texture2D(bitmap, (tmpvar_2 + tmpvar_20)).z;
                 tmpvar_17 = tmpvar_21;
             };
             if (isDad) {
@@ -234,7 +234,7 @@ class Glitch extends FlxShader {
                 vec2 tmpvar_66;
                 tmpvar_66.x = tmpvar_65;
                 tmpvar_66.y = tmpvar_2.y;
-                gl_FragColor = (gl_FragColor + flixel_texture2D (bitmap, tmpvar_66));
+                gl_FragColor = (gl_FragColor + flixel_texture2D(bitmap, tmpvar_66));
             };
             if (isDad) {
                 gl_FragColor.xyz = (gl_FragColor.xyz + mix (gl_FragColor.xyz, vec3(fract(
@@ -243,16 +243,16 @@ class Glitch extends FlxShader {
             };
             if (isDad) {
                 float tmpvar_67;
-                tmpvar_67 = floor((float(mod ((openfl_TextureCoordv.y * 0.3), 2.0))));
+                tmpvar_67 = floor((float(mod((openfl_TextureCoordv.y * 0.3), 2.0))));
                 if ((tmpvar_67 == 0.0)) {
                 gl_FragColor.xyz = (gl_FragColor.xyz * (1.0 - (0.15 * noise_1)));
                 };
             };
             if (isDad) {
-                gl_FragColor = (gl_FragColor - ((flixel_texture2D (bitmap, tmpvar_2) + flixel_texture2D (bitmap, tmpvar_2)) + flixel_texture2D (bitmap, tmpvar_2)));
+                gl_FragColor = (gl_FragColor - ((flixel_texture2D(bitmap, tmpvar_2) + flixel_texture2D(bitmap, tmpvar_2)) + flixel_texture2D (bitmap, tmpvar_2)));
             };
             if (!(isDad)) {
-                gl_FragColor = flixel_texture2D (bitmap, tmpvar_2);
+                gl_FragColor = flixel_texture2D(bitmap, tmpvar_2);
             };
         }
     "
