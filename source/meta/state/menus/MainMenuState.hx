@@ -159,6 +159,10 @@ class MainMenuState extends MusicBeatState
 		addSettings();
 
 		move.setPosition(optionGroup[selection].getMidpoint().x, optionGroup[selection].getMidpoint().y + 15);
+
+		#if android
+		addVirtualPad(UP_DOWN, A);
+		#end
 	}
 
 	override function update(elapsed:Float)
