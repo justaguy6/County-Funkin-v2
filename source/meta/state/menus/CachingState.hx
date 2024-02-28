@@ -19,8 +19,10 @@ import flixel.util.FlxTimer;
 import flixel.addons.text.FlxTypeText;
 import flixel.text.FlxText;
 import meta.MusicBeat.MusicBeatState;
+#if desktop
 import hxcodec.VideoSprite;
-
+#end
+	
 class CachingState extends MusicBeatState{
 	var credits:Map<String, String> = [
 		"Deceived" => "BUBU AND TACK",
@@ -75,13 +77,14 @@ class CachingState extends MusicBeatState{
 						FlxG.bitmap.add(Paths.image("backgrounds/befriended/TV"));
 						FlxG.bitmap.add(Paths.image("backgrounds/befriended/light"));
 
+				                #if desktop
 						var beginningIntro:VideoSprite;
 						beginningIntro = new VideoSprite(250);
 						beginningIntro.openingCallback = beginningIntro.bitmap.stop;
 						beginningIntro.playVideo("assets/images/county-sprites/befriended/beginning.mp4");
 						add(beginningIntro);
 						beginningIntro.scale.set();
-
+                                                #end
 						var staticBg = new FlxSprite(-400, 0);
 						staticBg.frames = Paths.getSparrowAtlas("county-sprites/befriended/static");
 						staticBg.animation.addByPrefix("static", "static", 24, true);
