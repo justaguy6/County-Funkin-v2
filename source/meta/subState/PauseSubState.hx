@@ -37,8 +37,8 @@ class PauseSubState extends MusicBeatSubState
 		bg.scrollFactor.set();
 		add(bg);
 
-	//	vhsinfo = new VHSInfo(true);
-	//	add(vhsinfo);
+		vhsinfo = new VHSInfo(true);
+		add(vhsinfo);
 
 		camera = FlxG.cameras.list[FlxG.cameras.list.length - 1];
 
