@@ -1,11 +1,12 @@
 name: Android Build
 on: workflow_dispatch
-defaults:
-  run:
-    memory: '8GB'
+
 jobs:
   Build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        memory: '8GB'
     permissions:
         contents: write
         actions: write
@@ -64,6 +65,8 @@ jobs:
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
 
       - name: Building
+        runs-on: ubuntu-latest
+        memory: '8GB'
         run: haxelib run lime build android -final
 
       - name: Clear Previous Cache
