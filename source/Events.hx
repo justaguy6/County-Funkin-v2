@@ -1,6 +1,7 @@
 package;
-
+#if desktop
 import hxcodec.VideoSprite;
+#end
 import lime.app.Application;
 import gameObjects.userInterface.AudioVisualizer.BarVisualizer;
 import gameObjects.userInterface.SquareRiser;
@@ -66,7 +67,9 @@ class Events {
 	var eyes:FlxSprite;
 	var scare:FlxSprite;
 	var die:FlxSprite;
+	#if desktop
 	var beginningIntro:VideoSprite;
+	#end
 	var statics:FlxSprite;
 	var intruder:FlxSprite;
 	var staticBg:FlxSprite;
@@ -105,12 +108,14 @@ class Events {
 
 				PlayState.dadOpponent.alpha = 0;
 
+			        #if desktop
 				beginningIntro = new VideoSprite(262, 30);
 				beginningIntro.bitmap.onPlaying = function(){
 					if (PlayState.instance.paused)
 						beginningIntro.bitmap.pause();
 				}
-
+                                #end
+			
 				eyes = new FlxSprite(-427, -240);
 				eyes.loadGraphic(Paths.image("county-sprites/befriended/eyes"));
 				add(eyes, 0);
@@ -929,8 +934,10 @@ class Events {
 			case "Befriended":
 				if (step == 1)
 				{
+                                        #if desktop
 					beginningIntro.playVideo("assets/images/county-sprites/befriended/beginning.mp4");
 					add(beginningIntro, 5);
+                                        #end
 
 					FlxTweenPlayState.tween(blackOverlay, {alpha: 0}, 2, {ease: FlxEase.sineInOut});
 					
@@ -964,8 +971,9 @@ class Events {
 					
 					Init.trueSettings['Reduced Movements'] = false;
 
+					#if desktop
 					beginningIntro.destroy();
-					
+					#end
 					statics.visible = true;
 				}
 				if (step == 416)
@@ -4859,6 +4867,7 @@ class Events {
 		}
 	}
 
+	#if desktop
 	public function onPause()
 	{
 		switch (songName)
@@ -4868,7 +4877,7 @@ class Events {
 					beginningIntro.bitmap.pause();
 		}
 	}
-
+        #end
 	public function onResume()
 	{
 		switch (songName)
