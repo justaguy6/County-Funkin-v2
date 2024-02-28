@@ -4867,24 +4867,24 @@ class Events {
 		}
 	}
 
-	#if desktop
+	
 	public function onPause()
 	{
 		switch (songName)
 		{
 			case "Befriended":
-				if (beginningIntro != null)
-					beginningIntro.bitmap.pause();
+		//		if (beginningIntro != null)
+		//			beginningIntro.bitmap.pause();
 		}
 	}
-        #end
+        
 	public function onResume()
 	{
 		switch (songName)
 		{
 			case "Befriended":
-				if (beginningIntro != null)
-					beginningIntro.bitmap.resume();
+		//		if (beginningIntro != null)
+		//			beginningIntro.bitmap.resume();
 		}
 	}
 
