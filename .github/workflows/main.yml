@@ -47,6 +47,7 @@ jobs:
           haxelib setup /home/runner/haxelib
           haxelib install hxcpp > /dev/null
           haxelib install flixel-addons
+          haxelib install flixel
           haxelib install lime 7.9.0
           haxelib install newgrounds 1.3.0
           haxelib install openfl 9.1.0
