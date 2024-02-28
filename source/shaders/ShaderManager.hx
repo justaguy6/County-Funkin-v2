@@ -9,6 +9,7 @@ import shaders.codes.Glitch;
 import shaders.codes.Vhs;
 import openfl.filters.ShaderFilter;
 import openfl.Lib;
+import openfl.utils.Assets;
 
 class ShaderManager {
     public var translatedShader:Map<String, ShaderFilter>;
@@ -27,7 +28,7 @@ class ShaderManager {
 		glitch.isDad.value = [false];
 
 		block.intensity.value = [0];
-		block.abstractstuff.input = BitmapData.fromFile("assets/images/county-sprites/abstract.png");
+		block.abstractstuff.input = Assets.getBitmapData("assets/images/county-sprites/abstract.png");
 
 		bloom.intensity.value = [0];
 
