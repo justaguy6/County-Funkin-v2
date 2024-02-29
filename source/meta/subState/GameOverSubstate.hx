@@ -56,7 +56,7 @@ class GameOverSubstate extends MusicBeatSubState
 			flashingTime = 1;
 		}
 
-		if (controls.BACK)
+		if (#if desktop controls.BACK #else virtualPad.buttonB.justPressed #end)
 		{
 			FlxG.sound.music.stop();
 			PlayState.deaths = 0;
