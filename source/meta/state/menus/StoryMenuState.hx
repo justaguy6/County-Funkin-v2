@@ -120,13 +120,13 @@ class StoryMenuState extends MusicBeatState
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
-		if (controls.LEFT_P)
+		if (#if desktop controls.LEFT_P #else virtualPad.buttonLeft.justPressed #end)
 			switchSong(-1);
-		if (controls.RIGHT_P)
+		if (#if desktop controls.RIGHT_P #else virtualPad.buttonRight.justPressed #end)
 			switchSong(1);
-		if (controls.BACK)
+		if (#if desktop controls.BACK #else virtualPad.buttonB.justPressed #end)
 			Main.switchState(this, new MainMenuState());
-		if (controls.ACCEPT)
+		if (#if desktop controls.ACCEPT #else virtualPad.buttonA.justPressed #end)
 			Main.switchState(this, new CachingState(songList[selection]));
 	}
 
