@@ -351,7 +351,7 @@ class OptionsMenuState extends MusicBeatState
 	function updateSelections()
 	{
 		var up = #if desktop controls.UI_UP #else virtualPad.buttonUp.justPressed #end;
-		var down = #if desktop controls.UI_DOWN #else virtualPad.buttonDown.justPressed #endcontrols.UI_DOWN;
+		var down = #if desktop controls.UI_DOWN #else virtualPad.buttonDown.justPressed #end;
 		var up_p =  #if desktop controls.UI_UP_P #else virtualPad.buttonUp.justPressed #end;
 		var down_p =  #if desktop controls.UI_DOWN_P #else virtualPad.buttonDown.justPressed #end;
 		var controlArray:Array<Bool> = [up, down, up_p, down_p];
