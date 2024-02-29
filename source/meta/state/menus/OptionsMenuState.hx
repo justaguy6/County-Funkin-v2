@@ -350,10 +350,10 @@ class OptionsMenuState extends MusicBeatState
 
 	function updateSelections()
 	{
-		var up = controls.UI_UP;
-		var down = controls.UI_DOWN;
-		var up_p = controls.UI_UP_P;
-		var down_p = controls.UI_DOWN_P;
+		var up = #if desktop controls.UI_UP #else virtualPad.buttonUp.justPressed #end;
+		var down = #if desktop controls.UI_DOWN #else virtualPad.buttonDown.justPressed #endcontrols.UI_DOWN;
+		var up_p =  #if desktop controls.UI_UP_P #else virtualPad.buttonUp.justPressed #end;
+		var down_p =  #if desktop controls.UI_DOWN_P #else virtualPad.buttonDown.justPressed #end;
 		var controlArray:Array<Bool> = [up, down, up_p, down_p];
 
 		if (controlArray.contains(true))
@@ -447,7 +447,7 @@ class OptionsMenuState extends MusicBeatState
 			{
 				case Init.SettingTypes.Checkmark:
 					// checkmark basics lol
-					if (controls.ACCEPT)
+					if (#if desktop controls.ACCEPT #else virtualPad.A.justPressed #end)
 					{
 						lockedMovement = true;
 						FlxFlicker.flicker(activeSubgroup.members[curSelection], 0.5, 0.06 * 2, true, false, function(flick:FlxFlicker)
@@ -467,14 +467,14 @@ class OptionsMenuState extends MusicBeatState
 					#if !html5
 					var selector:Selector = currentAttachmentMap.get(activeSubgroup.members[curSelection]);
 
-					if (!controls.UI_LEFT)
+					if (#if desktop !controls.UI_LEFT #else virtualPad.buttonLeft.justPressed #end)
 						selector.selectorPlay('left');
-					if (!controls.UI_RIGHT)
+					if (#if desktop !controls.UI_RIGHT #else virtualPad.buttonRight.justPressed #end)
 						selector.selectorPlay('right');
 
-					if (controls.UI_RIGHT_P)
+					if (#if desktop controls.UI_RIGHT_P #else virtualPad.buttonRight.justPressed #end)
 						updateSelector(selector, 1);
-					else if (controls.UI_LEFT_P)
+					else if (#if desktop controls.UI_LEFT_P #else virtualPad.buttonRight.justPressed #end)
 						updateSelector(selector, -1);
 					#end
 				default:
@@ -579,7 +579,7 @@ class OptionsMenuState extends MusicBeatState
 
 	public function callNewGroup()
 	{
-		if (controls.ACCEPT)
+		if (#if desktop controls.ACCEPT #else virtualPad.buttonA.justPressed #end)
 		{
 			lockedMovement = true;
 			FlxFlicker.flicker(activeSubgroup.members[curSelection], 0.5, 0.06 * 2, true, false, function(flick:FlxFlicker)
@@ -591,7 +591,7 @@ class OptionsMenuState extends MusicBeatState
 
 	public function openControlmenu()
 	{
-		if (controls.ACCEPT)
+		if (#if desktop controls.ACCEPT #else virtualPad.buttonA.justPressed #end)
 		{
 			lockedMovement = true;
 			FlxFlicker.flicker(activeSubgroup.members[curSelection], 0.5, 0.06 * 2, true, false, function(flick:FlxFlicker)
@@ -605,7 +605,7 @@ class OptionsMenuState extends MusicBeatState
 	#if android
 	public function openAndroidControlmenu()
 	{
-		if (controls.ACCEPT)
+		if (#if desktop controls.ACCEPT #else virtualPad.buttonA.justPressed #end)
 		{
 			FlxG.sound.play(Paths.sound('confirmMenu'));
 			lockedMovement = true;
@@ -624,7 +624,7 @@ class OptionsMenuState extends MusicBeatState
 	public function exitMenu()
 	{
 		//
-		if (controls.ACCEPT)
+		if (#if desktop controls.ACCEPT #else virtualPad.buttonA.justPressed #end)
 		{
 			lockedMovement = true;
 			FlxFlicker.flicker(activeSubgroup.members[curSelection], 0.5, 0.06 * 2, true, false, function(flick:FlxFlicker)
