@@ -447,7 +447,7 @@ class OptionsMenuState extends MusicBeatState
 			{
 				case Init.SettingTypes.Checkmark:
 					// checkmark basics lol
-					if (#if desktop controls.ACCEPT #else virtualPad.A.justPressed #end)
+					if (#if desktop controls.ACCEPT #else virtualPadA.justPressed #end)
 					{
 						lockedMovement = true;
 						FlxFlicker.flicker(activeSubgroup.members[curSelection], 0.5, 0.06 * 2, true, false, function(flick:FlxFlicker)
