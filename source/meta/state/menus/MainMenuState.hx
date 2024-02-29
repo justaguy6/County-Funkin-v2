@@ -177,12 +177,12 @@ class MainMenuState extends MusicBeatState
 				FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 				selection += 1;
 			}
-			if (#if desktop controls.DOWN_P #else virtualPad.buttonUp.justPressed #end)
+			if (#if desktop controls.UP_P #else virtualPad.buttonUp.justPressed #end)
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 				selection -= 1;
 			}
-			if (#if desktop controls.DOWN_P #else virtualPad.buttonA.justPressed #end)
+			if (#if desktop controls.ACCEPT #else virtualPad.buttonA.justPressed #end)
 			{
 				switch (selection)
 				{
