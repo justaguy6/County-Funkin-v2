@@ -172,17 +172,17 @@ class MainMenuState extends MusicBeatState
 		move.y = FlxMath.lerp(optionGroup[selection].getMidpoint().y + 15, move.y, 1 - Main.framerateAdjust(0.15));
 		if (openedMenu)
 		{
-			if (controls.DOWN_P)
+			if (#if desktop controls.DOWN_P #else virtualPad.buttonDown.justPressed #end)
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 				selection += 1;
 			}
-			if (controls.UP_P)
+			if (#if desktop controls.DOWN_P #else virtualPad.buttonUp.justPressed #end)
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 				selection -= 1;
 			}
-			if (controls.ACCEPT)
+			if (#if desktop controls.DOWN_P #else virtualPad.buttonACCEPT.justPressed #end)
 			{
 				switch (selection)
 				{
