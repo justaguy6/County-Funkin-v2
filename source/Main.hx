@@ -96,7 +96,7 @@ class Main extends Sprite
 
 		// here we set up the base game
 		var gameCreate:FlxGame;
-		#if android
+		#if desktop
 		gameCreate = new FlxGame(gameWidth, gameHeight, mainClassState, #if (flixel < "5.0.0") zoom, #end framerate, framerate, skipSplash);
 		#else
 		addChild(new FlxGame(1280, 720, Init, 60, 60, true, false));
